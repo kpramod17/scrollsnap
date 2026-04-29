@@ -3,51 +3,83 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScrollSnap Review</title>
+    <title>ScrollSnap Sessions</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body class="review-body">
     <main class="review-shell">
       <section class="panel">
         <div class="panel-header review-header">
-          <div>
-            <p class="eyebrow">Captured Session</p>
-            <h1>ScrollSnap Review</h1>
+          <div class="brand-lockup">
+            <img src="icons/icon128.png" alt="" class="brand-mark">
+            <div>
+              <p class="eyebrow">Session Library</p>
+              <h1>ScrollSnap</h1>
+            </div>
           </div>
           <div class="header-actions">
-            <button id="exportButton" class="button button-primary">Export ZIP</button>
-            <button id="clearButton" class="button button-danger">Clear Session</button>
+            <button id="clearAllButton" class="button button-danger">Clear All Data</button>
           </div>
         </div>
 
         <p id="reviewError" class="error-banner hidden"></p>
+        <p class="privacy-note review-privacy">Everything in this library stays local in your browser unless you export it manually.</p>
+        <p class="privacy-note review-privacy">Deleting a session from ScrollSnap does not delete downloaded files.</p>
+      </section>
+
+      <section id="libraryView" class="panel">
+        <div class="frames-header">
+          <div>
+            <h2>Saved Sessions</h2>
+            <p id="librarySummary" class="section-note">0 sessions</p>
+          </div>
+        </div>
+        <div id="libraryEmptyState" class="empty-state hidden">No saved sessions yet. Start a capture, scroll, stop, and it will appear here.</div>
+        <div id="sessionGrid" class="session-grid"></div>
+      </section>
+
+      <section id="detailView" class="panel hidden">
+        <div class="frames-header">
+          <div>
+            <h2 id="detailTitle">Session Detail</h2>
+            <p id="detailSubtitle" class="section-note"></p>
+          </div>
+          <div class="header-actions">
+            <button id="backButton" class="button">Back to Library</button>
+            <button id="exportMarkdownButton" class="button button-primary">Export Markdown</button>
+            <button id="exportZipButton" class="button">Export ZIP</button>
+            <button id="exportPdfButton" class="button">Export PDF</button>
+          </div>
+        </div>
 
         <section class="metadata-grid">
           <div class="meta-card">
-            <span>URL</span>
+            <span>Session title</span>
+            <strong id="metaSessionTitle">-</strong>
+          </div>
+          <div class="meta-card">
+            <span>Source URL</span>
             <strong id="metaUrl">-</strong>
           </div>
           <div class="meta-card">
-            <span>Title</span>
-            <strong id="metaTitle">-</strong>
+            <span>Page title</span>
+            <strong id="metaPageTitle">-</strong>
           </div>
           <div class="meta-card">
-            <span>Started</span>
-            <strong id="metaStartedAt">-</strong>
+            <span>Captured</span>
+            <strong id="metaCreatedAt">-</strong>
           </div>
           <div class="meta-card">
             <span>Frames</span>
             <strong id="metaFrameCount">0</strong>
           </div>
+          <div class="meta-card">
+            <span>Save location</span>
+            <strong id="metaSaveLocation">-</strong>
+          </div>
         </section>
-      </section>
 
-      <section class="panel">
-        <div class="frames-header">
-          <h2>Frames</h2>
-          <button id="closeButton" class="button">Close</button>
-        </div>
-        <div id="emptyState" class="empty-state hidden">No captured frames yet.</div>
+        <div id="framesEmptyState" class="empty-state hidden">No frames captured yet. Start a session and scroll to capture frames.</div>
         <div id="framesGrid" class="frames-grid"></div>
       </section>
     </main>

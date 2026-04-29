@@ -9,9 +9,12 @@
   <body class="popup-body">
     <main class="panel popup-panel">
       <div class="panel-header">
-        <div>
-          <p class="eyebrow">Chrome Extension MVP</p>
-          <h1>ScrollSnap</h1>
+        <div class="brand-lockup">
+          <img src="icons/icon128.png" alt="" class="brand-mark">
+          <div>
+            <p class="eyebrow">Local Scroll Capture</p>
+            <h1>ScrollSnap</h1>
+          </div>
         </div>
         <span id="statusBadge" class="status-badge">Idle</span>
       </div>
@@ -22,20 +25,79 @@
           <strong id="statusText">Idle</strong>
         </div>
         <div class="stat-row">
-          <span>Frames</span>
+          <span>Frames saved</span>
           <strong id="frameCount">0</strong>
+        </div>
+        <div class="stat-row">
+          <span>Saved sessions</span>
+          <strong id="sessionCount">0</strong>
         </div>
       </section>
 
+      <p id="currentSessionTitle" class="inline-note hidden"></p>
+      <p id="saveLocation" class="inline-note hidden"></p>
       <p id="errorMessage" class="error-banner hidden"></p>
+      <p class="privacy-note">Captures are stored locally in your browser. Nothing is uploaded.</p>
 
       <div class="button-stack">
         <button id="startButton" class="button button-primary">Start Capture</button>
         <button id="stopButton" class="button" disabled>Stop Capture</button>
-        <button id="reviewButton" class="button">Open Review</button>
-        <button id="clearButton" class="button button-danger">Clear Session</button>
+        <button id="libraryButton" class="button">Open Session Library</button>
+        <button id="clearButton" class="button button-danger">Clear All Data</button>
       </div>
+
+      <section class="settings-card">
+        <div class="settings-header">
+          <h2>Settings</h2>
+          <span class="tiny-pill">v0.2</span>
+        </div>
+
+        <label class="field">
+          <span>Capture interval</span>
+          <select id="captureInterval">
+            <option value="0.5">50% viewport</option>
+            <option value="0.8">80% viewport</option>
+            <option value="1">100% viewport</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Export image format</span>
+          <select id="exportImageFormat">
+            <option value="png">PNG</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Max frames per session</span>
+          <input id="maxFrames" type="number" min="1" max="500" step="1">
+        </label>
+
+        <label class="toggle-field">
+          <span>Duplicate skipping</span>
+          <input id="duplicateSkipping" type="checkbox">
+        </label>
+      </section>
     </main>
+
+    <section id="onboardingModal" class="modal-overlay hidden">
+      <div class="modal-card">
+        <p class="eyebrow">Welcome</p>
+        <h2>How ScrollSnap works</h2>
+        <ol class="ordered-list">
+          <li>Open a webpage or document</li>
+          <li>Click Start Capture</li>
+          <li>Scroll naturally</li>
+          <li>Stop and review</li>
+          <li>Export Markdown, ZIP, or PDF</li>
+        </ol>
+        <div class="info-card">
+          <strong>Privacy</strong>
+          <p>ScrollSnap captures screenshots only after you start a session. Screenshots stay in local browser storage, are never uploaded, and you can delete sessions anytime. The extension captures only the active tab during an active session.</p>
+        </div>
+        <button id="onboardingButton" class="button button-primary">Got it</button>
+      </div>
+    </section>
 
     <script src="popup.js" type="module"></script>
   </body>
