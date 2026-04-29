@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrollSnap</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="popup-body">
+    <main class="panel popup-panel">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Chrome Extension MVP</p>
+          <h1>ScrollSnap</h1>
+        </div>
+        <span id="statusBadge" class="status-badge">Idle</span>
+      </div>
+
+      <section class="stats-card">
+        <div class="stat-row">
+          <span>Status</span>
+          <strong id="statusText">Idle</strong>
+        </div>
+        <div class="stat-row">
+          <span>Frames</span>
+          <strong id="frameCount">0</strong>
+        </div>
+      </section>
+
+      <p id="errorMessage" class="error-banner hidden"></p>
+
+      <div class="button-stack">
+        <button id="startButton" class="button button-primary">Start Capture</button>
+        <button id="stopButton" class="button" disabled>Stop Capture</button>
+        <button id="reviewButton" class="button">Open Review</button>
+        <button id="clearButton" class="button button-danger">Clear Session</button>
+      </div>
+    </main>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>

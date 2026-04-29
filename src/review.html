@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrollSnap Review</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="review-body">
+    <main class="review-shell">
+      <section class="panel">
+        <div class="panel-header review-header">
+          <div>
+            <p class="eyebrow">Captured Session</p>
+            <h1>ScrollSnap Review</h1>
+          </div>
+          <div class="header-actions">
+            <button id="exportButton" class="button button-primary">Export ZIP</button>
+            <button id="clearButton" class="button button-danger">Clear Session</button>
+          </div>
+        </div>
+
+        <p id="reviewError" class="error-banner hidden"></p>
+
+        <section class="metadata-grid">
+          <div class="meta-card">
+            <span>URL</span>
+            <strong id="metaUrl">-</strong>
+          </div>
+          <div class="meta-card">
+            <span>Title</span>
+            <strong id="metaTitle">-</strong>
+          </div>
+          <div class="meta-card">
+            <span>Started</span>
+            <strong id="metaStartedAt">-</strong>
+          </div>
+          <div class="meta-card">
+            <span>Frames</span>
+            <strong id="metaFrameCount">0</strong>
+          </div>
+        </section>
+      </section>
+
+      <section class="panel">
+        <div class="frames-header">
+          <h2>Frames</h2>
+          <button id="closeButton" class="button">Close</button>
+        </div>
+        <div id="emptyState" class="empty-state hidden">No captured frames yet.</div>
+        <div id="framesGrid" class="frames-grid"></div>
+      </section>
+    </main>
+
+    <script src="review.js" type="module"></script>
+  </body>
+</html>

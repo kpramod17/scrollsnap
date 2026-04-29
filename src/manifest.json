@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "ScrollSnap",
+  "description": "Capture ordered viewport screenshots while manually scrolling a webpage.",
+  "version": "0.1.0",
+  "action": {
+    "default_title": "ScrollSnap",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "downloads",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "styles.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
